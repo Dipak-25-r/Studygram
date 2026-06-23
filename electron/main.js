@@ -1,5 +1,5 @@
 /* ============================================================
-   electron/main.js — desktop wrapper for StudyHub
+   electron/main.js — desktop wrapper for StudyGram
    Run: npm install && npm start (from /electron)
    Build EXE: npm run build  (uses electron-builder, see package.json)
    ============================================================ */

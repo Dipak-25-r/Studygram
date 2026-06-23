@@ -1,7 +1,7 @@
 {
-  "name": "studyhub-desktop",
+  "name": "StudyGram-desktop",
   "version": "1.0.0",
-  "description": "StudyHub — offline-first study platform (desktop wrapper)",
+  "description": "StudyGram — offline-first study platform (desktop wrapper)",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -14,8 +14,8 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.studyhub.app",
-    "productName": "StudyHub",
+    "appId": "com.StudyGram.app",
+    "productName": "StudyGram",
     "files": ["main.js", "app/**/*", "icon.png"],
     "win": { "target": "nsis", "icon": "icon.png" },
     "mac": { "target": "dmg" },

@@ -1,4 +1,4 @@
-# StudyHub — Offline-First Study Platform
+# StudyGram — Offline-First Study Platform
 
 An Instagram-style study platform where users share **only external links**
 (YouTube videos, Google Drive PDFs/PPTs) — no files are ever uploaded or
@@ -10,7 +10,7 @@ database.
 ## 1. Architecture
 
 ```
-/studyhub
+/StudyGram
  ├── index.html          → app shell (sidebar/bottom nav, view root, modal/toast hosts)
  ├── css/style.css        → dark theme + neon glassmorphism design system
  ├── js/
@@ -52,7 +52,7 @@ profile, XP) keeps working from cached local data.
 No build step needed — it's plain HTML/CSS/JS.
 
 ```bash
-cd studyhub
+cd StudyGram
 python3 -m http.server 8080
 # then open http://localhost:8080
 ```
@@ -69,24 +69,24 @@ but a local server avoids occasional CORS quirks.)
 ## 3. Deploy on GitHub Pages
 
 ```bash
-cd studyhub
+cd StudyGram
 git init
 git add .
-git commit -m "StudyHub initial commit"
+git commit -m "StudyGram initial commit"
 git branch -M main
-git remote add origin https://github.com/<you>/studyhub.git
+git remote add origin https://github.com/<you>/StudyGram.git
 git push -u origin main
 ```
 
 Then in GitHub: **Settings → Pages → Source: `main` branch, `/ (root)`** →
-Save. Your app will be live at `https://<you>.github.io/studyhub/`.
+Save. Your app will be live at `https://<you>.github.io/StudyGram/`.
 
 ---
 
 ## 4. Convert to EXE (Electron)
 
 ```bash
-cd studyhub/electron
+cd StudyGram/electron
 mkdir app
 cp -r ../index.html ../css ../js app/      # copy the web app in
 npm install
@@ -102,11 +102,11 @@ npm run build       # produces a Windows installer in /electron/dist
 ## 5. Convert to APK (Capacitor)
 
 ```bash
-cd studyhub
+cd StudyGram
 npm init -y
 npm install @capacitor/core @capacitor/cli @capacitor/android
 mkdir www && cp -r index.html css js www/
-npx cap init StudyHub com.studyhub.app --web-dir=www
+npx cap init StudyGram com.StudyGram.app --web-dir=www
 npx cap add android
 npx cap copy android
 npx cap open android      # opens Android Studio -> Build > Build APK

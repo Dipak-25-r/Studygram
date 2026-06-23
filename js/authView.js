@@ -11,7 +11,7 @@ const AuthView = {
         <div class="auth-card glass-card">
           <div class="auth-brand">
             <span class="brand-icon">🎓</span>
-            <h1>StudyHub</h1>
+            <h1>StudyGram</h1>
             <p class="muted">Share & discover study material — videos, notes, slides.</p>
           </div>
           <div class="auth-tabs">
@@ -68,7 +68,7 @@ const AuthView = {
             password: data.get('password'), role: data.get('role')
           });
           Auth.awardXP(20, 'created your account');
-          toast('Account created! Welcome to StudyHub 🎉', 'success');
+          toast('Account created! Welcome to StudyGram 🎉', 'success');
           Router.go('feed');
         } catch (err) { toast(err.message, 'error'); }
       });
