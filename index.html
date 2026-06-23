@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>StudyGram — Share & Discover Study Material</title>
+<meta name="description" content="Offline-first study platform for sharing YouTube videos and Drive notes — no file uploads, just links.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+ <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <div id="offline-badge" class="offline-badge hidden">📡 Offline mode — showing cached content</div>
+
+  <div class="app-shell">
+
+    <!-- Desktop sidebar -->
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-icon">🎓</span><span>StudyGram</span></div>
+      <nav id="sidebar-nav" class="sidebar-nav"></nav>
+      <div class="sidebar-footer muted">All data stored locally on this device.</div>
+    </aside>
+
+    <!-- Main column -->
+    <div class="main-col">
+      <header class="top-bar">
+        <div class="top-bar-brand mobile-only"><span class="brand-icon">🎓</span> StudyGram</div>
+        <div class="top-bar-spacer"></div>
+        <button id="top-auth-btn" class="top-auth-btn">Login</button>
+      </header>
+
+      <main id="view-root" class="view-root"></main>
+    </div>
+
+    <!-- Mobile bottom nav -->
+    <nav id="bottom-nav" class="bottom-nav"></nav>
+  </div>
+
+  <div id="modal-root" class="modal-root"></div>
+  <div id="toast-host" class="toast-host"></div>
+
+  <!-- Core utilities first -->
+  <script src="js/storage.js"></script>
+  <script src="js/linkUtils.js"></script>
+  <script src="js/firebase-sync.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/monetization.js"></script>
+  <!-- Feature modules -->
+  <script src="js/feed.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/classroom.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/authView.js"></script>
+  <!-- Router + bootstrap last -->
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

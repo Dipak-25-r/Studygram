@@ -1,0 +1,9 @@
+{
+  "appId": "com.StudyGram.app",
+  "appName": "StudyGram",
+  "webDir": "www",
+  "backgroundColor": "#0f172a",
+  "android": {
+    "allowMixedContent": true
+  }
+}

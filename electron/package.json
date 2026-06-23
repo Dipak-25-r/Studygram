@@ -1,0 +1,24 @@
+{
+  "name": "StudyGram-desktop",
+  "version": "1.0.0",
+  "description": "StudyGram — offline-first study platform (desktop wrapper)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.StudyGram.app",
+    "productName": "StudyGram",
+    "files": ["main.js", "app/**/*", "icon.png"],
+    "win": { "target": "nsis", "icon": "icon.png" },
+    "mac": { "target": "dmg" },
+    "linux": { "target": "AppImage" }
+  }
+}
