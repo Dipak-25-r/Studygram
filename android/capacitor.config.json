@@ -1,0 +1,9 @@
+{
+  "appId": "com.studyhub.app",
+  "appName": "StudyHub",
+  "webDir": "www",
+  "backgroundColor": "#0f172a",
+  "android": {
+    "allowMixedContent": true
+  }
+}
