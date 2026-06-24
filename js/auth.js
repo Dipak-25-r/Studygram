@@ -37,8 +37,9 @@ const Auth = {
       createdAt: nowISO()
     };
     DB.insert(DB_KEYS.users, user);
+    CloudSync.syncUserUp(user);
     DB.setSession(user.id);
-    CloudSync.syncUserUp(user); // fire-and-forget; local registration already succeeded
+     // fire-and-forget; local registration already succeeded
     return user;
   },
 
