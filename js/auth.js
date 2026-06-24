@@ -19,7 +19,7 @@ const Auth = {
 
   isLoggedIn() { return !!this.currentUser(); },
 
-  async register({ name, email, password, role }) {
+  async register({ name, email, password, role, location }) {
     const users = DB.all(DB_KEYS.users);
     if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
       throw new Error('An account with this email already exists.');
@@ -27,7 +27,7 @@ const Auth = {
     const passwordHash = await this.hash(password);
     const user = {
       id: uid('user'),
-      name, email, role, passwordHash,
+      name, email, role, location, passwordHash,
       avatarColor: ['#7c3aed', '#06b6d4', '#ec4899', '#22c55e', '#f59e0b'][Math.floor(Math.random() * 5)],
       followers: [],
       following: [],
