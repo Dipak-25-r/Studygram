@@ -19,7 +19,7 @@ const Auth = {
 
   isLoggedIn() { return !!this.currentUser(); },
 
-  async register({ name, email, password, role, location }) {
+  async register({ name, email, password, role, location:"India" }) {
     const users = DB.all(DB_KEYS.users);
     if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
       throw new Error('An account with this email already exists.');
