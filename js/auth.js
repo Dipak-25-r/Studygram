@@ -19,7 +19,7 @@ const Auth = {
 
   isLoggedIn() { return !!this.currentUser(); },
 
-  async register({ name, email, password, role, location }) {
+  async register({ name, email, password, role, location= "India" }) {
     const users = DB.all(DB_KEYS.users);
     if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
       throw new Error('An account with this email already exists.');
@@ -37,8 +37,14 @@ const Auth = {
       createdAt: nowISO()
     };
     DB.insert(DB_KEYS.users, user);
-    CloudSync.syncUserUp(user);
-    DB.setSession(user.id);
+
+try {
+  await CloudSync.syncUserUp(user);
+} catch (e) {
+  console.log("Sync failed:", e);
+}
+
+DB.setSession(user.id);
      // fire-and-forget; local registration already succeeded
     return user;
   },
