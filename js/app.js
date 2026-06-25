@@ -3,8 +3,23 @@
    ============================================================ */
 
 (async function bootstrap() {
-  await Seed.run();
+ async function retryPendingSync() {
+  const pending = DB.all("pendingSync") || [];
 
+  for (let item of pending) {
+    try {
+      if (item.type === "user") {
+        await CloudSync.syncUserUp(item.data);
+      }
+      DB.remove("pendingSync", item.id);
+    } catch (e) {
+      console.log("Retry failed:", e);
+    }
+  }
+}
+
+await retryPendingSync();
+await Seed.run();
   // Build nav (sidebar on desktop, bottom bar on mobile — same markup, CSS handles layout)
   const navItems = Object.entries(Router.routes).filter(([, r]) => !r.hideNav);
   const navHTML = navItems.map(([key, r]) => `

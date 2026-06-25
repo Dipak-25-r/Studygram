@@ -37,11 +37,17 @@ const Auth = {
       createdAt: nowISO()
     };
     DB.insert(DB_KEYS.users, user);
-
+    
 try {
   await CloudSync.syncUserUp(user);
 } catch (e) {
   console.log("Sync failed:", e);
+
+  DB.insert("pendingSync", {
+    id: uid("sync"),
+    type: "user",
+    data: user
+  });
 }
 
 DB.setSession(user.id);
